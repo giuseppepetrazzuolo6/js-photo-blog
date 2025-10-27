@@ -6,7 +6,16 @@ sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 
 //assegno la mia API key ad una variabile
 const apiUrl = 'https://lanciweb.github.io/demo/api/pictures/'
-//utilizzo quella variabile per feettuare una chiamata ajax
+//utilizzo la variabile apiUrl per effettuare una chiamata ajax
+axios.get(apiUrl)
+    .then(response => {
+        //console.log(response.data);
+        const arrayObj = response.data
+        console.log(arrayObj);
+    })
+    .catch(error => {
+        console.error('Errore nella chiamata API:', error);
+    });
 //il dato restituito dalla chiamata lo assegno a sua volta ad una variabile
 //eseguo un ciclo forEach o for semplice per iterare nel dato restituito dalla API key
 //sapendo che il dato restituito dalla chiamata è un array di oggetti,
