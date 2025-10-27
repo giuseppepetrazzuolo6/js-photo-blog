@@ -35,13 +35,13 @@ axios.get(apiUrl)
             const { id, title, date, url } = element
             //assegno il valore delle proprietà degli oggetti(ora divenute variabili) al markupup
             const markupString = `
-                <div class="col-4">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="card rounded-0 p-3 position-relative">
-                        <img src="${url}" alt="">
+                        <img class="card-img-top rounded-0" src="${url}" alt="">
                         <img class="pin" src="./assets/img/pin.svg" alt="">
                         <div class="card-body">
-                        <p>${date}</p>
-                         <h2>${title}</h4>
+                            <p>${date}</p>
+                            <h2>${title}</h2>
                         </div>
                     </div>
                 </div>`
