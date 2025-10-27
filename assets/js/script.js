@@ -18,18 +18,26 @@ const markupString = `
             </div>
         </div>
     </div>`
+//dichiaro una variabile per l'elemento html
+const rowEl = document.querySelector('.row')
+//console.log(rowEl);
 //utilizzo la variabile apiUrl per effettuare una chiamata ajax
 axios.get(apiUrl)
     .then(response => {
         //console.log(response.data);
+        //il dato restituito dalla chiamata lo assegno a sua volta ad una variabile
         const arrayObj = response.data
         console.log(arrayObj);
+        //eseguo un ciclo forEach o for semplice per iterare nel dato restituito dalla API key
+        arrayObj.forEach(element => {
+            //console.log(element);
+            const { id, title, date, url } = element
+        });
+
     })
     .catch(error => {
         console.error('Errore nella chiamata API:', error);
     });
-//il dato restituito dalla chiamata lo assegno a sua volta ad una variabile
-//eseguo un ciclo forEach o for semplice per iterare nel dato restituito dalla API key
 //sapendo che il dato restituito dalla chiamata è un array di oggetti,
 //assegno il valore delle proprietà degli oggetti agli elementi html
 //incrocio le dita e se non funziona mi chiudo in camera a piangere :'C
