@@ -5,6 +5,7 @@ sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 */
 
 //assegno la mia API key ad una variabile
+const apiUrl = 'https://lanciweb.github.io/demo/api/pictures/'
 //utilizzo quella variabile per feettuare una chiamata ajax
 //il dato restituito dalla chiamata lo assegno a sua volta ad una variabile
 //eseguo un ciclo forEach o for semplice per iterare nel dato restituito dalla API key
