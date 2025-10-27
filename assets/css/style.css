@@ -10,3 +10,15 @@ header {
         font-size: 5rem;
     }
 }
+
+/*main*/
+main {
+    background-image: url(/assets/img/cork.png);
+}
+
+.pin {
+    width: 35px;
+    position: absolute;
+    left: 45%;
+    top: -13px;
+}
