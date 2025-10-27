@@ -31,13 +31,24 @@ axios.get(apiUrl)
         //eseguo un ciclo forEach o for semplice per iterare nel dato restituito dalla API key
         arrayObj.forEach(element => {
             //console.log(element);
+            //destrutturazione
             const { id, title, date, url } = element
+            //assegno il valore delle proprietà degli oggetti(ora divenute variabili) al markupup
+            const markupString = `
+                <div class="col-4">
+                    <div class="card rounded-0 p-3 position-relative">
+                        <img src="${url}" alt="">
+                        <img class="pin" src="./assets/img/pin.svg" alt="">
+                        <div class="card-body">
+                        <p>${date}</p>
+                         <h2>${title}</h4>
+                        </div>
+                    </div>
+                </div>`
+            //inserisco la markupString all'interno dell'elemento html
+            rowEl.innerHTML += markupString
         });
-
     })
     .catch(error => {
         console.error('Errore nella chiamata API:', error);
     });
-//sapendo che il dato restituito dalla chiamata è un array di oggetti,
-//assegno il valore delle proprietà degli oggetti agli elementi html
-//incrocio le dita e se non funziona mi chiudo in camera a piangere :'C
