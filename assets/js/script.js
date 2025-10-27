@@ -39,9 +39,9 @@ axios.get(apiUrl)
                     <div class="card rounded-0 p-3 position-relative">
                         <img class="card-img-top rounded-0" src="${url}" alt="">
                         <img class="pin" src="./assets/img/pin.svg" alt="">
-                        <div class="card-body">
-                            <p>${date}</p>
-                            <h2>${title}</h2>
+                        <div class="card-body p-0">
+                            <p class="pt-1 pb-1 mb-0">${date}</p>
+                            <h2 class="mb-0">${title}</h2>
                         </div>
                     </div>
                 </div>`
