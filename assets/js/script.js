@@ -6,6 +6,18 @@ sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 
 //assegno la mia API key ad una variabile
 const apiUrl = 'https://lanciweb.github.io/demo/api/pictures/'
+//variabile con markup
+const markupString = `
+     <div class="col-4">
+        <div class="card rounded-0 p-3 position-relative">
+            <img src="./assets/img/spongebob600x600.jpg" alt="">
+            <img class="pin" src="./assets/img/pin.svg" alt="">
+            <div class="card-body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nulla.</p>
+                <h2>title</h4>
+            </div>
+        </div>
+    </div>`
 //utilizzo la variabile apiUrl per effettuare una chiamata ajax
 axios.get(apiUrl)
     .then(response => {
