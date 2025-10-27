@@ -1,3 +1,12 @@
 body {
     font-family: "Edu TAS Beginner", cursive;
 }
+
+/*header*/
+header {
+    background-image: url(/assets/img/wall.png);
+
+    h1 {
+        font-size: 5rem;
+    }
+}
