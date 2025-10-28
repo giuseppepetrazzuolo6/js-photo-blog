@@ -37,7 +37,7 @@ axios.get(apiUrl)
             const markupString = `
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="card rounded-0 p-3 position-relative">
-                        <img class="card-img-top rounded-0" src="${url}" alt="">
+                        <img class="card-img-top rounded-0 polaroid" src="${url}" alt="">
                         <img class="pin" src="./assets/img/pin.svg" alt="">
                         <div class="card-body p-0">
                             <p class="pt-1 pb-1 mb-0">${date}</p>
@@ -72,5 +72,9 @@ const overlayEl = document.querySelector('.overlay');
 const overlayImgEl = document.querySelector('.overlay-img');
 const closeBtnEl = document.querySelector('.close-btn');
 //aggiungo un evento che rimuove la classe d-none all'overlay cliccando sulle immagini
+//variabile per richiamare tutte le immagini generate dopo la chiamata AJAX e 
+//la generazione dinamica del markup
+//la utilizzo in un ciclo forEach per far si che l'evento applicato venga ripetuto per ogni immagine
+const allImageEl = document.querySelectorAll('.polaroid')
 //assegno al tag img dell'overlay il valore dell'immagine cliccata (src)
 //aggiungo un evento al bottone che aggiunge nuovamente la classe d-none all'overlay
