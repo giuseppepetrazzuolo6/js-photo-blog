@@ -1,9 +1,3 @@
-/*
-Milestone 3
-Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API,
-sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
-*/
-
 //assegno la mia API key ad una variabile
 const apiUrl = 'https://lanciweb.github.io/demo/api/pictures/'
 //variabile con markup
@@ -21,6 +15,14 @@ const markupString = `
 //dichiaro una variabile per l'elemento html
 const rowEl = document.querySelector('.row')
 //console.log(rowEl);
+//richiamo gli elementi HTML dell'overlay
+const overlayEl = document.querySelector('.overlay');
+const overlayImgEl = document.querySelector('.overlay-img');
+const closeBtnEl = document.querySelector('.close-btn');
+//chiusura overlay
+closeBtnEl.addEventListener('click', () => {
+    overlayEl.classList.add('d-none');
+});
 //utilizzo la variabile apiUrl per effettuare una chiamata ajax
 axios.get(apiUrl)
     .then(response => {
@@ -48,33 +50,18 @@ axios.get(apiUrl)
             //inserisco la markupString all'interno dell'elemento html
             rowEl.innerHTML += markupString
         });
+        //variabile per richiamare tutte le immagini generate dopo la chiamata AJAX e
+        //la generazione dinamica del markup
+        //la utilizzo in un ciclo forEach per far si che l'evento applicato venga ripetuto per ogni immagine
+        const allImageEl = document.querySelectorAll('.polaroid')
+        allImageEl.forEach(img => {
+            img.addEventListener('click', () => {
+                overlayEl.classList.remove('d-none')
+                //aggiorno immagine dentro overlay
+                overlayImgEl.src = img.src
+            })
+        })
     })
     .catch(error => {
         console.error('Errore nella chiamata API:', error);
     });
-/*
-Milestone 1
-Facciamo in modo di creare un overlay che copra l’intera pagina e all’interno, centrata,
-disponiamo un’immagine qualunque ed un button di chiusura.
-
-Milestone 2
-Facciamo sparire l’overlay con l’aiuto di una classe CSS che imposti il display: none .
-Dopodiché facciamo sì che cliccando una qualunque foto. L’overlay ricompaia.
-Cliccando invece il button di chiusura, l’overlay scompare nuovamente.
-
-Milestone 3
-Inseriamo il pezzo di logica finale: quando una foto viene cliccata,
-dobbiamo fare in modo che sia proprio quella foto a essere mostrata all’interno dell’overlay.
-*/
-
-//richiamo gli elementi HTML dell'overlay
-const overlayEl = document.querySelector('.overlay');
-const overlayImgEl = document.querySelector('.overlay-img');
-const closeBtnEl = document.querySelector('.close-btn');
-//aggiungo un evento che rimuove la classe d-none all'overlay cliccando sulle immagini
-//variabile per richiamare tutte le immagini generate dopo la chiamata AJAX e 
-//la generazione dinamica del markup
-//la utilizzo in un ciclo forEach per far si che l'evento applicato venga ripetuto per ogni immagine
-const allImageEl = document.querySelectorAll('.polaroid')
-//assegno al tag img dell'overlay il valore dell'immagine cliccata (src)
-//aggiungo un evento al bottone che aggiunge nuovamente la classe d-none all'overlay
