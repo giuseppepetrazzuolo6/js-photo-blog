@@ -22,6 +22,7 @@ const closeBtnEl = document.querySelector('.close-btn');
 //chiusura overlay
 closeBtnEl.addEventListener('click', () => {
     overlayEl.classList.add('d-none');
+    document.body.classList.remove('no-scroll')
 });
 //utilizzo la variabile apiUrl per effettuare una chiamata ajax
 axios.get(apiUrl)
@@ -57,6 +58,7 @@ axios.get(apiUrl)
         allImageEl.forEach(img => {
             img.addEventListener('click', () => {
                 overlayEl.classList.remove('d-none')
+                document.body.classList.add('no-scroll')
                 //aggiorno immagine dentro overlay
                 overlayImgEl.src = img.src
             })
