@@ -68,6 +68,9 @@ dobbiamo fare in modo che sia proprio quella foto a essere mostrata all’intern
 */
 
 //richiamo gli elementi HTML dell'overlay
+const overlayEl = document.querySelector('.overlay');
+const overlayImgEl = document.querySelector('.overlay-img');
+const closeBtnEl = document.querySelector('.close-btn');
 //aggiungo un evento che rimuove la classe d-none all'overlay cliccando sulle immagini
 //assegno al tag img dell'overlay il valore dell'immagine cliccata (src)
 //aggiungo un evento al bottone che aggiunge nuovamente la classe d-none all'overlay
